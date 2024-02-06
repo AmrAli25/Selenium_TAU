@@ -27,4 +27,9 @@ public class HomePage {
         clickLink("Forgot Password");
         return new ForgetPassPage(driver);
     }
+    public HoverPage clickHovers(){
+        clickLink("Hovers");
+        return new HoverPage(driver);
+    }
+
 }
