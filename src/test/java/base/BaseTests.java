@@ -19,7 +19,7 @@ public class BaseTests {
         driver = new ChromeDriver();
         goHome();
 
-        homePage = new HomePage(driver);
+        homePage = new HomePage(driver); // this will redirect me to the homepage
     }
     @BeforeMethod
     public void goHome(){
