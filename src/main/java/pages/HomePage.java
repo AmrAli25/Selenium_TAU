@@ -59,5 +59,13 @@ public class HomePage {
         clickLink("Context Menu");
         return new ContextMenuPage(driver);
     }
+    public WysiwygEditor clickWysiwygPage(){
+        clickLink("WYSIWYG Editor");
+        return new WysiwygEditor(driver);
+    }
+    public FramesPage clickFramesPage(){
+        clickLink("Frames");
+        return new FramesPage(driver);
+    }
 
 }
