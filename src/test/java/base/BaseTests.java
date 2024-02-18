@@ -14,12 +14,9 @@ public class BaseTests {
 
     @BeforeClass
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver"); // For mac os
-//        System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe"); // For windows os
         driver = new ChromeDriver();
         goHome();
-
-        homePage = new HomePage(driver); // this will redirect me to the homepage
+        homePage = new HomePage(driver); // this will redirect me to the homepage class page
     }
     @BeforeMethod
     public void goHome(){
@@ -29,17 +26,5 @@ public class BaseTests {
     public void tearDown(){
         driver.quit();
     }
-    // This is the first example for Chapter 3
-//    public void firstExample(){
-//        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-//        driver = new ChromeDriver();
-//        driver.get("https://the-internet.herokuapp.com/");
-//        WebElement shiftingContentLink = driver.findElement(By.linkText("Shifting Content"));
-//        shiftingContentLink.click();
-//        WebElement menuLink = driver.findElement(By.linkText("Example 1: Menu Element"));
-//        menuLink.click();
-//        List <WebElement> links = driver.findElements(By.tagName("li"));
-//        System.out.println("The items in the list is : " + links.size());
-//        driver.quit();
-//    }
+
 }
