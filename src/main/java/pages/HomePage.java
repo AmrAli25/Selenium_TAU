@@ -71,5 +71,21 @@ public class HomePage {
         clickLink("Dynamic Loading");
         return new DynamicLoading(driver);
     }
+    public LargeAndDeepDomPage clickLargeAndDeepDomPage(){
+        clickLink("Large & Deep DOM");
+        return new LargeAndDeepDomPage(driver);
+    }
+    public infiniteScrollPage clickinfiniteScrollPage(){
+        clickLink("Infinite Scroll");
+        return new infiniteScrollPage(driver);
+    }
+    public EntryAdPage clickEntryAd(){
+        clickLink("Entry Ad");
+        return new EntryAdPage(driver);
+    }
+    public MultipleWindowsPage clickMultipleWindows(){
+        clickLink("Multiple Windows");
+        return new MultipleWindowsPage(driver);
+    }
 
 }

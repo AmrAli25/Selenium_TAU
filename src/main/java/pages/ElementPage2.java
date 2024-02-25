@@ -26,4 +26,8 @@ public class ElementPage2 {
         wait.until(ExpectedConditions.presenceOfElementLocated(finishText));
         return driver.findElement(finishText).getText();
     }
+    public Boolean checkStartBtn(){
+        return driver.findElement(startBtn).isDisplayed();
+    }
+
 }
