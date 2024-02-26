@@ -5,7 +5,7 @@ import pages.ElementPage2;
 
 public class WindowManger {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public WindowManger(WebDriver driver) {
         this.driver = driver;

@@ -1,7 +1,14 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class HomePage {
 
@@ -87,5 +94,6 @@ public class HomePage {
         clickLink("Multiple Windows");
         return new MultipleWindowsPage(driver);
     }
+
 
 }
