@@ -1,5 +1,7 @@
 package utils;
 
+
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.events.WebDriverListener;
@@ -26,6 +28,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void onError(Object target, Method method, Object[] args, InvocationTargetException e) {
+        System.out.println("There have been an error: " + e.getMessage());
         WebDriverListener.super.onError(target, method, args, e);
     }
 
@@ -41,6 +44,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeGet(WebDriver driver, String url) {
+        System.out.println("Opening the url: " + url);
         WebDriverListener.super.beforeGet(driver, url);
     }
 
@@ -71,6 +75,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeFindElement(WebDriver driver, By locator) {
+        System.out.println("Trying to find the element: " + locator.toString());
         WebDriverListener.super.beforeFindElement(driver, locator);
     }
 
@@ -111,6 +116,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeQuit(WebDriver driver) {
+        System.out.println("Closing the browser");
         WebDriverListener.super.beforeQuit(driver);
     }
 
@@ -191,6 +197,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeClick(WebElement element) {
+        System.out.println("Clicking on element: " + element.getText() );
         WebDriverListener.super.beforeClick(element);
     }
 
@@ -629,5 +636,103 @@ public class EventListenerManager implements WebDriverListener {
         WebDriverListener.super.afterFullscreen(window);
     }
 
+    @Override
+    public void beforeAnyTargetLocatorCall(WebDriver.TargetLocator targetLocator, Method method, Object[] args) {
+        WebDriverListener.super.beforeAnyTargetLocatorCall(targetLocator, method, args);
+    }
 
+    @Override
+    public void afterAnyTargetLocatorCall(WebDriver.TargetLocator targetLocator, Method method, Object[] args, Object result) {
+        WebDriverListener.super.afterAnyTargetLocatorCall(targetLocator, method, args, result);
+    }
+
+    @Override
+    public void beforeFrame(WebDriver.TargetLocator targetLocator, int index) {
+        WebDriverListener.super.beforeFrame(targetLocator, index);
+    }
+
+    @Override
+    public void afterFrame(WebDriver.TargetLocator targetLocator, int index, WebDriver driver) {
+        WebDriverListener.super.afterFrame(targetLocator, index, driver);
+    }
+
+    @Override
+    public void beforeFrame(WebDriver.TargetLocator targetLocator, String nameOrId) {
+        WebDriverListener.super.beforeFrame(targetLocator, nameOrId);
+    }
+
+    @Override
+    public void afterFrame(WebDriver.TargetLocator targetLocator, String nameOrId, WebDriver driver) {
+        WebDriverListener.super.afterFrame(targetLocator, nameOrId, driver);
+    }
+
+    @Override
+    public void beforeFrame(WebDriver.TargetLocator targetLocator, WebElement frameElement) {
+        WebDriverListener.super.beforeFrame(targetLocator, frameElement);
+    }
+
+    @Override
+    public void afterFrame(WebDriver.TargetLocator targetLocator, WebElement frameElement, WebDriver driver) {
+        WebDriverListener.super.afterFrame(targetLocator, frameElement, driver);
+    }
+
+    @Override
+    public void beforeParentFrame(WebDriver.TargetLocator targetLocator) {
+        WebDriverListener.super.beforeParentFrame(targetLocator);
+    }
+
+    @Override
+    public void afterParentFrame(WebDriver.TargetLocator targetLocator, WebDriver driver) {
+        WebDriverListener.super.afterParentFrame(targetLocator, driver);
+    }
+
+    @Override
+    public void beforeWindow(WebDriver.TargetLocator targetLocator, String nameOrHandle) {
+        WebDriverListener.super.beforeWindow(targetLocator, nameOrHandle);
+    }
+
+    @Override
+    public void afterWindow(WebDriver.TargetLocator targetLocator, String nameOrHandle, WebDriver driver) {
+        WebDriverListener.super.afterWindow(targetLocator, nameOrHandle, driver);
+    }
+
+    @Override
+    public void beforeNewWindow(WebDriver.TargetLocator targetLocator, WindowType typeHint) {
+        WebDriverListener.super.beforeNewWindow(targetLocator, typeHint);
+    }
+
+    @Override
+    public void afterNewWindow(WebDriver.TargetLocator targetLocator, WindowType typeHint, WebDriver driver) {
+        WebDriverListener.super.afterNewWindow(targetLocator, typeHint, driver);
+    }
+
+    @Override
+    public void beforeDefaultContent(WebDriver.TargetLocator targetLocator) {
+        WebDriverListener.super.beforeDefaultContent(targetLocator);
+    }
+
+    @Override
+    public void afterDefaultContent(WebDriver.TargetLocator targetLocator, WebDriver driver) {
+        WebDriverListener.super.afterDefaultContent(targetLocator, driver);
+    }
+
+    @Override
+    public void beforeActiveElement(WebDriver.TargetLocator targetLocator) {
+        WebDriverListener.super.beforeActiveElement(targetLocator);
+    }
+
+    @Override
+    public void afterActiveElement(WebDriver.TargetLocator targetLocator, WebDriver driver) {
+        WebDriverListener.super.afterActiveElement(targetLocator, driver);
+    }
+
+    @Override
+    public void beforeAlert(WebDriver.TargetLocator targetLocator) {
+        WebDriverListener.super.beforeAlert(targetLocator);
+    }
+
+    @Override
+    public void afterAlert(WebDriver.TargetLocator targetLocator, Alert alert) {
+        WebDriverListener.super.afterAlert(targetLocator, alert);
+    }
 }
