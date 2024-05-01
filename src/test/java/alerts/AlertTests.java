@@ -1,12 +1,17 @@
 package alerts;
 
 import base.BaseTests;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
-
+@Epic("Automation Exercise using Selenium - TAU")
+@Feature("Interacting with Alerts")
+@Story("Alerts Tests")
 public class AlertTests extends BaseTests {
-    @Test
+    @Test(description = "Accept the alert that comes as javascript")
     public void acceptAlertTest(){
         var alertPage = homePage.clickAlertsPage();
         alertPage.clickJsAlert();
@@ -14,7 +19,7 @@ public class AlertTests extends BaseTests {
         assertEquals(alertPage.getResultHint(),"You successfully clicked an alert","Wrong alert message is displayed");
     }
 
-    @Test
+    @Test(description = "Cancel the alert that comes as javascript")
     public void cancelAlertTest(){
         var alertPage = homePage.clickAlertsPage();
         alertPage.clickJsConfirm();
@@ -23,7 +28,7 @@ public class AlertTests extends BaseTests {
         assertEquals(text,"I am a JS Confirm", "Wrong one clicked");
     }
 
-    @Test
+    @Test(description = "InterActing and adding text to the alert")
     public void enterTextForAlert(){
         var alertPage = homePage.clickAlertsPage();
         alertPage.clickJsPrompt();

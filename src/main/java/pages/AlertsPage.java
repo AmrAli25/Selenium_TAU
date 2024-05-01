@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +14,7 @@ public class AlertsPage {
     public AlertsPage(WebDriver driver) {
         this.driver = driver;
     }
-
+    @Step("Show the javascript alert")
     public void clickJsAlert(){
         driver.findElement(triggerJsAlert).click();
     }
@@ -23,7 +24,7 @@ public class AlertsPage {
     public void clickJsPrompt(){
         driver.findElement(triggerJsPrompt).click();
     }
-
+    @Step("Accept the alert")
     public void alert_AcceptAlert(){
         driver.switchTo().alert().accept();
     }

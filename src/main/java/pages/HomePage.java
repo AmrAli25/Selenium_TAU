@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -52,7 +53,7 @@ public class HomePage {
         clickLink("Horizontal Slider");
         return new HorizontalSliderPage(driver);
     }
-
+    @Step("Go to the Alert page")
     public AlertsPage clickAlertsPage(){
         clickLink("JavaScript Alerts");
         return new AlertsPage(driver);
