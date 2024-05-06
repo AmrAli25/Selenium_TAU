@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -14,9 +15,10 @@ public class LargeAndDeepDomPage {
         this.driver = driver;
     }
 
-    public void scrollToTable(){
+    @Step("Scroll to the wanted table")
+    public void scrollToTable() {
         WebElement tableElement = driver.findElement(table);
         String script = "arguments[0].scrollIntoView();";
-        ((JavascriptExecutor)driver).executeScript(script,tableElement); // the tableElement will replace the arguments[0] and preform the javascript fun
+        ((JavascriptExecutor) driver).executeScript(script, tableElement); // the tableElement will replace the arguments[0] and preform the javascript fun
     }
 }

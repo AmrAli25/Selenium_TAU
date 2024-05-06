@@ -1,12 +1,11 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
 import java.time.Duration;
 
 public class EntryAdPage {
@@ -18,12 +17,15 @@ public class EntryAdPage {
         this.driver = driver;
     }
 
-    public String getModalTitle(){
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(2));
+    @Step("Get the Modal title")
+    public String getModalTitle() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(modalTitle)));
         return driver.findElement(modalTitle).getText();
     }
-    public void clickCloseFromModal(){
+
+    @Step("Close the modal")
+    public void clickCloseFromModal() {
         driver.findElement(adModalClose).click();
     }
 }

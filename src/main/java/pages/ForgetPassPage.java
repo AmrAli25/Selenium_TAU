@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -12,14 +13,11 @@ public class ForgetPassPage {
         this.driver = driver;
     }
 
-    public EmailSentPage enterEmailAndSubmit(String email){
+    @Step("Enter the valid data and click the submit button")
+    public EmailSentPage enterEmailAndSubmit(String email) {
         driver.findElement(enterEmailField).sendKeys(email);
         driver.findElement(submitButton).click();
         return new EmailSentPage(driver);
     }
-//    public EmailSentPage clickSubmitButton(){
-//        driver.findElement(submitButton).click();
-//        return new EmailSentPage(driver);
-//    }
 
 }

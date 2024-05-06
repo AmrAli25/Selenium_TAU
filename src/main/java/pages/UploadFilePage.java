@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,14 +15,19 @@ public class UploadFilePage {
         this.driver = driver;
     }
 
-    public void clickSubmitFile(){
+    @Step("Click on submit file button")
+    public void clickSubmitFile() {
         driver.findElement(fileSubmit).click();
     }
-    public void uploadFile(String absFilePath){
+
+    @Step("Upload a file ")
+    public void uploadFile(String absFilePath) {
         driver.findElement(fileUpload).sendKeys(absFilePath);
         clickSubmitFile();
     }
-    public String getUploadedFileName(){
+
+    @Step("Get the uploaded file name")
+    public String getUploadedFileName() {
         return driver.findElement(fileUploaded).getText();
     }
 }

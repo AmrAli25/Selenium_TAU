@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,16 +18,20 @@ public class ElementPage2 {
         this.driver = driver;
     }
 
-    public void clickStartBtn(){
+    @Step("Click start button")
+    public void clickStartBtn() {
         driver.findElement(startBtn).click();
     }
 
-    public String getFinishText(){
+    @Step("Get the finish text")
+    public String getFinishText() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(finishText));
         return driver.findElement(finishText).getText();
     }
-    public Boolean checkStartBtn(){
+
+    @Step("Check the start button visibility")
+    public Boolean checkStartBtn() {
         return driver.findElement(startBtn).isDisplayed();
     }
 

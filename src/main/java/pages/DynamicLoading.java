@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,19 +16,23 @@ public class DynamicLoading {
         this.driver = driver;
     }
 
-    public ElementPage1 clickElementPage1(){
+    @Step("Click element page 1")
+    public ElementPage1 clickElementPage1() {
         driver.findElement(exambleOne).click();
         return new ElementPage1(driver);
     }
-    public ElementPage2 clickElementPage2(){
+
+    @Step("Click element page 2")
+    public ElementPage2 clickElementPage2() {
         driver.findElement(exambletwo).click();
         return new ElementPage2(driver);
     }
-    public void openInNewTab(){
+
+    @Step("Open the example in a new window ")
+    public void openInNewTab() {
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(exambletwo)).keyDown(Keys.COMMAND).click().perform();
     }
-
 
 
 }

@@ -61,7 +61,7 @@ public class BaseTests {
     }
     private ChromeOptions getChromeOptions(){
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
+        options.addArguments("start-maximized","--headless");
         return options;
     }
     public CookieManager getCookieManager(){

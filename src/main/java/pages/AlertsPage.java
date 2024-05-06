@@ -14,30 +14,44 @@ public class AlertsPage {
     public AlertsPage(WebDriver driver) {
         this.driver = driver;
     }
+
     @Step("Show the javascript alert")
-    public void clickJsAlert(){
+    public void clickJsAlert() {
         driver.findElement(triggerJsAlert).click();
     }
-    public void clickJsConfirm(){
+
+    @Step("Click the confirm button for Js Alert")
+    public void clickJsConfirm() {
         driver.findElement(triggerJsConfirm).click();
     }
-    public void clickJsPrompt(){
+
+    @Step("Click the Js prompt")
+    public void clickJsPrompt() {
         driver.findElement(triggerJsPrompt).click();
     }
+
     @Step("Accept the alert")
-    public void alert_AcceptAlert(){
+    public void alert_AcceptAlert() {
         driver.switchTo().alert().accept();
     }
-    public void alert_DismissAlert(){
+
+    @Step("Remove the Js alert")
+    public void alert_DismissAlert() {
         driver.switchTo().alert().dismiss();
     }
-    public String alert_GetAlertText(){
+
+    @Step("Get the text in the Js Alert")
+    public String alert_GetAlertText() {
         return driver.switchTo().alert().getText();
     }
-    public void alert_EnterTextForAlert(String text){
+
+    @Step("Enter a text in the Js Alert")
+    public void alert_EnterTextForAlert(String text) {
         driver.switchTo().alert().sendKeys(text);
     }
-    public String getResultHint(){
+
+    @Step("Get the data from the hint")
+    public String getResultHint() {
         return driver.findElement(resultHint).getText();
     }
 }

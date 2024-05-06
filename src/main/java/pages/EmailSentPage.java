@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,8 +12,10 @@ public class EmailSentPage {
     public EmailSentPage(WebDriver driver) {
         this.driver = driver;
     }
+
     // Get the message from the alert
-    public String getMessage(){
-       return driver.findElement(alertMessage).getText();
+    @Step("Get the alert message ")
+    public String getMessage() {
+        return driver.findElement(alertMessage).getText();
     }
 }

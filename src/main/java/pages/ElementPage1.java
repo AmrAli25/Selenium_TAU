@@ -1,11 +1,11 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
-
 
 import java.time.Duration;
 
@@ -20,10 +20,10 @@ public class ElementPage1 {
         this.driver = driver;
     }
 
-    public void ClickStartBtn(){
+    @Step("Click Start button")
+    public void ClickStartBtn() {
         driver.findElement(startBtn).click();
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        wait.until(ExpectedConditions.invisibilityOf(driver.findElement(loadingIndicator)));
+
 
         FluentWait wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(5))
@@ -33,7 +33,8 @@ public class ElementPage1 {
 
     }
 
-    public String getFinishText(){
+    @Step("Get the finish text")
+    public String getFinishText() {
         return driver.findElement(finishText).getText();
     }
 }

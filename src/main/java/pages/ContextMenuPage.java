@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,16 +15,20 @@ public class ContextMenuPage {
         this.driver = driver;
     }
 
-    public void rightClickOnBox(){
+    @Step("Right click the box")
+    public void rightClickOnBox() {
         WebElement box = driver.findElement(boxField);
         Actions actions = new Actions(driver);
         actions.contextClick(box).perform();
     }
 
-    public String alert_getText(){
+    @Step("Get the text of the text")
+    public String alert_getText() {
         return driver.switchTo().alert().getText();
     }
-    public void alert_acceptAlert(){
-         driver.switchTo().alert().accept();
+
+    @Step("Accept the alert")
+    public void alert_acceptAlert() {
+        driver.switchTo().alert().accept();
     }
 }

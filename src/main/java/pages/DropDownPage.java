@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -13,26 +14,31 @@ public class DropDownPage {
     private WebDriver driver;
     private By dropDownField = By.id("dropdown");
 
-    public DropDownPage(WebDriver driver){
+    public DropDownPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void selectFromDropDown(String option){
+    @Step("Select from the dropDown menu")
+    public void selectFromDropDown(String option) {
         findDropdownElement().selectByVisibleText(option);
     }
 
-    public List<String> getSelectedOptions(){
+    @Step("Get the options in the dropDown menu ")
+    public List<String> getSelectedOptions() {
         List<WebElement> selectedElements = findDropdownElement().getAllSelectedOptions();
-        return selectedElements.stream().map(e->e.getText()).collect(Collectors.toList());
+        return selectedElements.stream().map(e -> e.getText()).collect(Collectors.toList());
     }
 
-    private Select findDropdownElement(){
+    @Step("Get the options in the dropDown menu")
+    private Select findDropdownElement() {
         return new Select(driver.findElement(dropDownField));
     }
-    public void enableMultipleSelection(){
+
+    @Step("Enable the multiple selection in the dropDown menu using Js executor")
+    public void enableMultipleSelection() {
         String script = "arguments[0].setAttribute('multiple', '')";
-        var jsExecutor = (JavascriptExecutor)driver;
-        jsExecutor.executeScript(script,findDropdownElement());
+        var jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript(script, findDropdownElement());
     }
 
 }

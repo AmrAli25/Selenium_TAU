@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,18 +15,21 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public void setUsernameField(String username){
+    @Step("Enter the username ")
+    public void setUsernameField(String username) {
         driver.findElement(usernameField).sendKeys(username);
     }
-    public void setPasswordField(String password){
+
+    @Step("Enter the password ")
+    public void setPasswordField(String password) {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    public SecureAreaPage clickLoginButton(){
+    @Step("Click on the login button")
+    public SecureAreaPage clickLoginButton() {
         driver.findElement(loginButton).click();
         return new SecureAreaPage(driver);
     }
-
 
 
 }
