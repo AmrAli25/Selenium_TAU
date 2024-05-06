@@ -1,4 +1,4 @@
-##Project details:
+## Project details:
 * This is a practice project for Selenium using Java - TAU course presented by Angie Jones
 * Applied many practices in automation testing like:
   *    Page object model as a design pattern for the project
