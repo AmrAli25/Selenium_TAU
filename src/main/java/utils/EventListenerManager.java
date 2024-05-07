@@ -1,7 +1,6 @@
 package utils;
 
 
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.events.WebDriverListener;
@@ -13,8 +12,10 @@ import java.time.Duration;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class EventListenerManager implements WebDriverListener {
+    private static final Logger logger = Logger.getLogger(EventListenerManager.class.getName());
 
     @Override
     public void beforeAnyCall(Object target, Method method, Object[] args) {
@@ -197,7 +198,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeClick(WebElement element) {
-        System.out.println("Clicking on element: " + element.getText() );
+        System.out.println("Clicking on element: " + element.getText());
         WebDriverListener.super.beforeClick(element);
     }
 

@@ -4,12 +4,15 @@ import base.BaseTests;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import utils.TestngListener;
 
 import static org.testng.Assert.assertEquals;
 @Epic("Automation Exercise using Selenium - TAU")
 @Feature("Interacting with Alerts")
 @Story("Alerts Tests")
+@Listeners(TestngListener.class)
 public class AlertTests extends BaseTests {
     @Test(description = "Accept the alert that comes as javascript")
     public void acceptAlertTest(){

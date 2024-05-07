@@ -5,6 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static utils.Helper.ExplicitWait;
 
 public class DynamicLoading {
 
@@ -18,12 +22,14 @@ public class DynamicLoading {
 
     @Step("Click element page 1")
     public ElementPage1 clickElementPage1() {
+        ExplicitWait(driver,10).until(ExpectedConditions.elementToBeClickable(exambleOne));
         driver.findElement(exambleOne).click();
         return new ElementPage1(driver);
     }
 
     @Step("Click element page 2")
     public ElementPage2 clickElementPage2() {
+        ExplicitWait(driver,10).until(ExpectedConditions.elementToBeClickable(exambletwo));
         driver.findElement(exambletwo).click();
         return new ElementPage2(driver);
     }
