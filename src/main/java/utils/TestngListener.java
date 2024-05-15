@@ -1,25 +1,31 @@
 package utils;
 
 
+import org.openqa.selenium.WebDriver;
 import org.testng.*;
+import org.testng.internal.IResultListener;
 
-public class TestngListener implements ISuiteListener, ITestListener, IInvokedMethodListener {
+import static utils.Helper.attachScreenshotToAllureReport;
+import static utils.Helper.takeScreenShot;
+
+
+public class TestngListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IResultListener {
 
     ////////////////////////////////////////////////////////////
     ////////////////////// ISuiteListener /////////////////////
     //////////////////////////////////////////////////////////
     @Override
     public void onStart(ISuite suite) {
-        System.out.println("\n" + "**********************************************");
+        System.out.println("\n" + "=====================================");
         System.out.println("Starting Test Suite; By Amr Ali *");
-        System.out.println("**********************************************" + "\n");
+        System.out.println("=====================================" + "\n");
     }
 
     @Override
     public void onFinish(ISuite suite) {
-        System.out.println("\n" + "**********************************************");
+        System.out.println("\n" + "=====================================");
         System.out.println("Finished Test Suite; By Amr Ali *");
-        System.out.println("**********************************************" + "\n");
+        System.out.println("=====================================" + "\n");
     }
 
     ////////////////////////////////////////////////////////////
@@ -27,15 +33,25 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
     //////////////////////////////////////////////////////////
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("\n" + "**************************************************** " + "Test: ["
-                + context.getName() + "] Started" + " ****************************************************" + "\n");
+        System.out.println("\n" + "=====================================" + "Test: ["
+                + context.getName() + "] Started" + "=====================================" + "\n");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        System.out.println("\n" + "**************************************************** " + "Test: ["
-                + context.getName() + "] Finished" + " ****************************************************" + "\n");
+        System.out.println("\n" + "=====================================" + "Test: ["
+                + context.getName() + "] Finished" + "=====================================" + "\n");
     }
+
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+        ITestContext context = result.getTestContext();
+        WebDriver driver = (WebDriver) context.getAttribute("driver");
+        attachScreenshotToAllureReport(driver);
+//        takeScreenShot(driver, result);
+    }
+
 
 
     ////////////////////////////////////////////////////////////

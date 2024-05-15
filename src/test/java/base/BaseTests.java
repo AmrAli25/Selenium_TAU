@@ -11,7 +11,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringDecorator;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 import pages.HomePage;
 import utils.CookieManager;
@@ -29,18 +31,24 @@ import java.io.IOException;
 public class BaseTests {
     protected HomePage homePage;
     private WebDriver driver;       // normal driver
+    private ITestResult result;
+    private ITestContext context;
 
     @BeforeClass
     public void setUp() {
         driver = createWebDriverListener(new ChromeDriver(getChromeOptions()));
+        result = Reporter.getCurrentTestResult();
+        context = result.getTestContext();
+        context.setAttribute("driver", driver);
 
-        goHome();
-        homePage = new HomePage(driver); // this will redirect me to the homepage class page
+//        goHome();
+        homePage = new HomePage(driver);          // this will redirect me to the homepage class page
     }
 
     @BeforeMethod
     public void goHome() {
         driver.get("https://the-internet.herokuapp.com/");
+
     }
 
     @AfterMethod(description = "If there is an error then this will take a screenshot for it")

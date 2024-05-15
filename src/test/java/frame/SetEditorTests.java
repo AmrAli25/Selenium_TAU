@@ -20,7 +20,7 @@ public class SetEditorTests extends BaseTests {
     public void setEditorTextTest(){
         var textEditorPage = homePage.clickWysiwygPage();
         String text1 = "Hello ";
-        String text2 = "World";
+        String text2 = "Worldd";
 
         textEditorPage.clearTextArea();
         textEditorPage.setTextArea(text1);

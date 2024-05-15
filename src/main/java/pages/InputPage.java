@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
+import static utils.Helper.highlightElement;
+import static utils.Helper.takeScreenShot;
+
 public class InputPage {
     private WebDriver driver;
     private By inputField = By.id("target");
@@ -26,6 +29,7 @@ public class InputPage {
 
     @Step("Get the results text")
     public String getResultText() {
+//        takeScreenShot(driver.findElement(resultHint));
         return driver.findElement(resultHint).getText();
     }
 }
