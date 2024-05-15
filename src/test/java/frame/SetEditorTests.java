@@ -26,6 +26,6 @@ public class SetEditorTests extends BaseTests {
         textEditorPage.setTextArea(text1);
         textEditorPage.clickIncreaseIndentBtn();
         textEditorPage.setTextArea(text2);
-        assertEquals(textEditorPage.getEditorText(),text1+text2,"Wrong text entered");
+        assertEquals(textEditorPage.getEditorText(),text1+text1,"Wrong text entered");
     }
 }

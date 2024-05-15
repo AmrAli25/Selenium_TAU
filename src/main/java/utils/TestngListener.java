@@ -6,7 +6,6 @@ import org.testng.*;
 import org.testng.internal.IResultListener;
 
 import static utils.Helper.attachScreenshotToAllureReport;
-import static utils.Helper.takeScreenShot;
 
 
 public class TestngListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IResultListener {
@@ -53,7 +52,6 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
     }
 
 
-
     ////////////////////////////////////////////////////////////
     ///////////////// IInvokedMethodListener //////////////////
     //////////////////////////////////////////////////////////
@@ -70,6 +68,13 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
 
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
+        // Add this in here to attach the screenshot in the allure report
+        ITestContext context = testResult.getTestContext();
+        WebDriver driver = (WebDriver) context.getAttribute("driver");
+        if (driver != null && testResult.getStatus() == ITestResult.FAILURE) {
+            attachScreenshotToAllureReport(driver);
+        }
+
         System.out.println("\n" + "===========================================================================================");
         if (method.isConfigurationMethod()) {
             System.out.println("Finished Configuration Method (Setup or Teardown): [" + testResult.getName() + "]");
