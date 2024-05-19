@@ -51,20 +51,20 @@ public class BaseTests {
 
     }
 
-    @AfterMethod(description = "If there is an error then this will take a screenshot for it")
-    public void recordFailure(ITestResult result) {
-        // ITestResult is a type from the TestNG
-        if (ITestResult.FAILURE == result.getStatus()) {
-            var camera = (TakesScreenshot) driver;
-            File screenshot = camera.getScreenshotAs(OutputType.FILE);
-            System.out.println("Screenshot path : " + screenshot.getAbsolutePath());
-            try {
-                Files.move(screenshot, new File("resources/screenshots/" + result.getName() + ".png"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
+//    @AfterMethod(description = "If there is an error then this will take a screenshot for it")
+//    public void recordFailure(ITestResult result) {
+//        // ITestResult is a type from the TestNG
+//        if (ITestResult.FAILURE == result.getStatus()) {
+//            var camera = (TakesScreenshot) driver;
+//            File screenshot = camera.getScreenshotAs(OutputType.FILE);
+//            System.out.println("Screenshot path : " + screenshot.getAbsolutePath());
+//            try {
+//                Files.move(screenshot, new File("resources/screenshots/" + result.getName() + ".png"));
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//    }
 
     @AfterClass
     public void tearDown() {

@@ -45,7 +45,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeGet(WebDriver driver, String url) {
-        System.out.println("Opening the url: " + url);
+        System.out.println("STEP: Opening the url: " + url);
         WebDriverListener.super.beforeGet(driver, url);
     }
 
@@ -76,7 +76,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeFindElement(WebDriver driver, By locator) {
-        System.out.println("Trying to find the element: " + locator.toString());
+        System.out.println("STEP: Trying to find the element: " + locator.toString());
         WebDriverListener.super.beforeFindElement(driver, locator);
     }
 
@@ -117,7 +117,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeQuit(WebDriver driver) {
-        System.out.println("Closing the browser");
+        System.out.println("STEP: Closing the browser");
         WebDriverListener.super.beforeQuit(driver);
     }
 
@@ -198,7 +198,7 @@ public class EventListenerManager implements WebDriverListener {
 
     @Override
     public void beforeClick(WebElement element) {
-        System.out.println("Clicking on element: " + element.getText());
+        System.out.println("STEP: Clicking on element: " + element.getText());
         WebDriverListener.super.beforeClick(element);
     }
 

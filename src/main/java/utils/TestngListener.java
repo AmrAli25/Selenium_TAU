@@ -10,36 +10,33 @@ import static utils.Helper.attachScreenshotToAllureReport;
 
 public class TestngListener implements ISuiteListener, ITestListener, IInvokedMethodListener, IResultListener {
 
-    ////////////////////////////////////////////////////////////
-    ////////////////////// ISuiteListener /////////////////////
-    //////////////////////////////////////////////////////////
     @Override
     public void onStart(ISuite suite) {
-        System.out.println("\n" + "=====================================");
-        System.out.println("Starting Test Suite; By Amr Ali *");
-        System.out.println("=====================================" + "\n");
+        System.out.println("\n" + "+++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("INFO: Starting test suite: <" + suite.getName() + ">");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++" + "\n");
     }
 
     @Override
     public void onFinish(ISuite suite) {
-        System.out.println("\n" + "=====================================");
-        System.out.println("Finished Test Suite; By Amr Ali *");
-        System.out.println("=====================================" + "\n");
+        System.out.println("\n" + "+++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("INFO: Finished test suite: <" + suite.getName() + ">");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++" + "\n");
     }
 
-    ////////////////////////////////////////////////////////////
-    ////////////////////// ITestListener //////////////////////
-    //////////////////////////////////////////////////////////
+
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("\n" + "=====================================" + "Test: ["
-                + context.getName() + "] Started" + "=====================================" + "\n");
+        System.out.println("\n" + "+++++++++++++++++++++++++++++++++++++++++++++++ " +
+                "INFO: Running tests: <" + context.getName() + ">"
+                + " +++++++++++++++++++++++++++++++++++++++++++++++" + "\n");
     }
 
     @Override
     public void onFinish(ITestContext context) {
-        System.out.println("\n" + "=====================================" + "Test: ["
-                + context.getName() + "] Finished" + "=====================================" + "\n");
+        System.out.println("\n" + "+++++++++++++++++++++++++++++++++++++++++++++++ " +
+                "INFO: Finished tests: <" + context.getName() + ">"
+                + " +++++++++++++++++++++++++++++++++++++++++++++++" + "\n");
     }
 
 
@@ -48,22 +45,18 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
         ITestContext context = result.getTestContext();
         WebDriver driver = (WebDriver) context.getAttribute("driver");
         attachScreenshotToAllureReport(driver);
-//        takeScreenShot(driver, result);
     }
 
 
-    ////////////////////////////////////////////////////////////
-    ///////////////// IInvokedMethodListener //////////////////
-    //////////////////////////////////////////////////////////
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-        System.out.println("\n" + "============================================================================================");
+        System.out.println("\n" + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         if (method.isConfigurationMethod()) {
-            System.out.println("Starting Configuration Method (Setup or Teardown): [" + testResult.getName() + "]");
+            System.out.println("INFO: Starting Configuration Method (Setup or TearDown): <" + testResult.getName() + ">");
         } else {
-            System.out.println("Starting Test Case: [" + testResult.getName() + "]");
+            System.out.println("INFO: Starting Test Case: <" + testResult.getName() + ">");
         }
-        System.out.println("============================================================================================" + "\n");
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + "\n");
     }
 
     @Override
@@ -75,13 +68,13 @@ public class TestngListener implements ISuiteListener, ITestListener, IInvokedMe
             attachScreenshotToAllureReport(driver);
         }
 
-        System.out.println("\n" + "===========================================================================================");
+        System.out.println("\n" + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         if (method.isConfigurationMethod()) {
-            System.out.println("Finished Configuration Method (Setup or Teardown): [" + testResult.getName() + "]");
+            System.out.println("INFO: Finished Configuration Method (Setup or TearDown): <" + testResult.getName() + ">");
         } else {
-            System.out.println("Finished Test Case: [" + testResult.getName() + "]");
+            System.out.println("INFO: Finished Test Case: <" + testResult.getName() + ">");
         }
-        System.out.println("===========================================================================================" + "\n");
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" + "\n");
     }
 }
 
